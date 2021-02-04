@@ -1,5 +1,6 @@
 package modelo;
 
+import controlador.InicioController;
 import javafx.scene.image.ImageView;
 
 public class HiloOpacidadStart extends Thread {
@@ -14,6 +15,7 @@ public class HiloOpacidadStart extends Thread {
 
 	@Override
 	public void run () {
+		InicioController inicio = new InicioController();
 		System.out.println(imgTitulo.getLayoutX());
 		
 		while(imgTitulo.getLayoutX() != 165) {
@@ -30,7 +32,7 @@ public class HiloOpacidadStart extends Thread {
 
 		
 		
-		while (true) {
+		while (inicio.isActivo()==true) {
 			if (imgPressStart.isVisible()) {
 				imgPressStart.setVisible(false);
 				System.out.println("Funciono en el true");
