@@ -6,16 +6,17 @@ import javafx.scene.image.ImageView;
 public class HiloOpacidadStart extends Thread {
 	
 	ImageView imgPressStart, imgTitulo, imgFondo;
+	InicioController controller;
 	
-	 public HiloOpacidadStart(ImageView imgPressStart, ImageView imgTitulo, ImageView imgFondo) {
+	 public HiloOpacidadStart(ImageView imgPressStart, ImageView imgTitulo, ImageView imgFondo, InicioController controller) {
 		this.imgPressStart = imgPressStart;
 		this.imgTitulo = imgTitulo;
 		this.imgFondo = imgFondo;
+		this.controller = controller;
 	}
 
 	@Override
 	public void run () {
-		InicioController inicio = new InicioController();
 		System.out.println(imgTitulo.getLayoutX());
 		
 		while(imgTitulo.getLayoutX() != 165) {
@@ -32,15 +33,12 @@ public class HiloOpacidadStart extends Thread {
 
 		
 		
-		while (inicio.isActivo()==true) {
+		while (controller.isActivo()==true) {
 			if (imgPressStart.isVisible()) {
 				imgPressStart.setVisible(false);
-				System.out.println("Funciono en el true");
 			} else {
 				imgPressStart.setVisible(true);
-				System.out.println("Funciono en el false");
 			}
-			System.out.println("Funciono en el final");
 			try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {
@@ -48,5 +46,6 @@ public class HiloOpacidadStart extends Thread {
 				e.printStackTrace();
 			}
 		}
+		System.out.println("Funciono en el final");
 	}
 }

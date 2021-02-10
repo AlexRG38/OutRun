@@ -2,14 +2,17 @@ package controlador;
 
 import java.io.IOException;
 
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
@@ -18,41 +21,51 @@ import modelo.HiloOpacidadStart;
 public class InicioController {
 	
 	@FXML ImageView imgPressStart, imgTitulo, imgFondo;
-	
-	
+	@FXML AnchorPane container;
+	Stage stage;
+
 	boolean activo = true;
 	
+	 public InicioController(Stage stage) {
+		this.stage = stage;
+	}
+		
 	@FXML
 	public void initialize() {
-		AudioClip audio = new AudioClip("file:audio/IntroMusic.mp3");
-		audio.play();
-		HiloOpacidadStart hos = new HiloOpacidadStart(imgPressStart, imgTitulo, imgFondo);
+		/*AudioClip audio = new AudioClip("file:audio/IntroMusic.mp3");
+		audio.setVolume(10);
+		audio.play();*/
+		HiloOpacidadStart hos = new HiloOpacidadStart(imgPressStart, imgTitulo, imgFondo, this);
 		hos.start();
 		
-		imgPressStart.setOnKeyPressed(new EventHandler<KeyEvent>() {
+	}
+		
+	
+	public void prueba(MouseEvent event) {
+		System.out.println();
+		((Node)event.getSource()).getScene().setOnKeyPressed(new EventHandler<KeyEvent>() {
 
 			@Override
 			public void handle(KeyEvent event) {
-				if (event.getCode().equals(KeyCode.ENTER)) {
-					try {
-						Stage primaryStage = new Stage();
-						AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("/vista/PantallaJuego.fxml"));
-						Scene scene = new Scene(root,800,600);
-						primaryStage.setScene(scene);
-						primaryStage.getIcons().add(new Image("file:img/logo.png"));
-						primaryStage.setTitle("OutRun.exe version 1986");
-						primaryStage.show();
-						setActivo(false);
-						System.out.println("algo nose");
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
+
+				try {
+					FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/PantallaJuego.fxml"));
+					PartidaController controller = new PartidaController(stage);
+					loader.setController(controller);
+					AnchorPane root = (AnchorPane)loader.load();
 					
+					Scene scene = new Scene(root,800,600);
+					stage.setScene(scene);
+					stage.getIcons().add(new Image("file:img/logo.png"));
+					stage.setTitle("OutRun.exe version 1986");
+					activo = false;
+					stage.show();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
 			}
-			
 		});
-		
 	}
 
 
@@ -64,5 +77,6 @@ public class InicioController {
 	public void setActivo(boolean activo) {
 		this.activo = activo;
 	}
+	
 	
 }
