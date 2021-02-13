@@ -1,12 +1,8 @@
 package controlador;
 
-import java.io.IOException;
-
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -21,19 +17,17 @@ import modelo.HiloPartida;
 
 public class PartidaController {
 	
+	private static PartidaController partidaController;
 	@FXML Label lTiempo,lScore,lStage;
 	@FXML ImageView coche;
+	@FXML ImageView cocheChoque;
 	@FXML AnchorPane container;
 	@FXML Rectangle rLeft, rRight;
-	
-	public PartidaController(Stage stage) {
-		
-	}
 	
 	@FXML
 	public void initialize() {
 		System.out.println(lTiempo.getText());
-		HiloPartida hp = new HiloPartida(lTiempo, lScore, lStage, this);
+		HiloPartida hp = new HiloPartida(lTiempo, lScore, lStage, this, cocheChoque, coche);
 		hp.start();
 		coche.setOnKeyPressed(new EventHandler<KeyEvent>() {
 
@@ -47,6 +41,8 @@ public class PartidaController {
 		});
 	}
 	
+	
+	
 	public void prueba(MouseEvent event) {
 		System.out.println();
 		((Node)event.getSource()).getScene().setOnKeyPressed(new EventHandler<KeyEvent>() {
@@ -54,12 +50,12 @@ public class PartidaController {
 			@Override
 			public void handle(KeyEvent event) {
 				if (event.getCode() == KeyCode.LEFT) {
-					coche.setLayoutX(coche.getLayoutX() - 5);
+					coche.setLayoutX(coche.getLayoutX() - 10);
 					coche.setImage(new Image("file:img/car3.png"));
 					rLeft.setFill(Color.web("#d12121"));
 				} else if (event.getCode() == KeyCode.RIGHT) {
 					coche.setImage(new Image("file:img/car2.png"));
-					coche.setLayoutX(coche.getLayoutX() + 5);
+					coche.setLayoutX(coche.getLayoutX() + 10);
 					rRight.setFill(Color.web("#d12121"));
 				}
 			}

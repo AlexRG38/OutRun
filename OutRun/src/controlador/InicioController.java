@@ -50,7 +50,7 @@ public class InicioController {
 
 				try {
 					FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/PantallaJuego.fxml"));
-					PartidaController controller = new PartidaController(stage);
+					PartidaController controller = new PartidaController();
 					loader.setController(controller);
 					AnchorPane root = (AnchorPane)loader.load();
 					
@@ -58,7 +58,7 @@ public class InicioController {
 					stage.setScene(scene);
 					stage.getIcons().add(new Image("file:img/logo.png"));
 					stage.setTitle("OutRun.exe version 1986");
-					activo = false;
+					setActivo(false);
 					stage.show();
 				} catch (IOException e) {
 					// TODO Auto-generated catch block

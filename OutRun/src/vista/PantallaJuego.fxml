@@ -15,6 +15,11 @@
             <Image url="@../../img/800x600/carretera2.gif" />
          </image>
       </ImageView>
+      <ImageView fx:id="cocheChoque" fitHeight="13.0" fitWidth="30.0" layoutX="383.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../../img/car1.png" />
+         </image>
+      </ImageView>
       <Rectangle fx:id="rRight" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="48.0" layoutX="67.0" layoutY="21.0" stroke="BLACK" strokeType="INSIDE" width="40.0" />
       <Rectangle fx:id="rLeft" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="48.0" layoutX="27.0" layoutY="21.0" stroke="BLACK" strokeType="INSIDE" width="40.0" />
       <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="27.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
@@ -27,7 +32,7 @@
             <Image url="@../../img/keyLeft.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="coche" fitHeight="85.0" fitWidth="179.0" layoutX="320.0" layoutY="513.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="coche" fitHeight="71.0" fitWidth="144.0" layoutX="333.0" layoutY="530.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/car1.png" />
          </image>
@@ -58,7 +63,7 @@
             <Image url="@../../img/score.png" />
          </image>
       </ImageView>
-      <Label fx:id="lTiempo" layoutX="270.0" layoutY="9.0" prefHeight="54.0" prefWidth="40.0" text="80" textFill="#f5f555">
+      <Label fx:id="lTiempo" layoutX="270.0" layoutY="9.0" prefHeight="54.0" prefWidth="69.0" text="80" textFill="#f5f555">
          <font>
             <Font name="Arial Black" size="28.0" />
          </font>
@@ -68,7 +73,7 @@
             <Font name="Arial Black" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lStage" layoutX="661.0" layoutY="547.0" prefHeight="27.0" prefWidth="15.0" style="-fx-background-color: red;" text="1" textFill="WHITE">
+      <Label fx:id="lStage" alignment="CENTER" layoutX="661.0" layoutY="547.0" prefHeight="37.0" prefWidth="24.0" style="-fx-background-color: red;" text="1" textFill="WHITE">
          <font>
             <Font name="Arial Black" size="24.0" />
          </font>
