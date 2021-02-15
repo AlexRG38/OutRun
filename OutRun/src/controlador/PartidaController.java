@@ -17,28 +17,21 @@ import modelo.HiloPartida;
 
 public class PartidaController {
 	
-	private static PartidaController partidaController;
 	@FXML Label lTiempo,lScore,lStage;
 	@FXML ImageView coche;
-	@FXML ImageView cocheChoque;
+	@FXML ImageView cocheChoque, fondo;
 	@FXML AnchorPane container;
 	@FXML Rectangle rLeft, rRight;
+	Stage stage;
+	
+	public PartidaController(Stage stage) {
+		this.stage = stage;
+	}
 	
 	@FXML
 	public void initialize() {
-		System.out.println(lTiempo.getText());
-		HiloPartida hp = new HiloPartida(lTiempo, lScore, lStage, this, cocheChoque, coche);
+		HiloPartida hp = new HiloPartida(lTiempo, lScore, lStage, this, cocheChoque, coche, fondo, stage);
 		hp.start();
-		coche.setOnKeyPressed(new EventHandler<KeyEvent>() {
-
-			@Override
-			public void handle(KeyEvent event) {
-				if (event.getCode() == KeyCode.ENTER) {
-					coche.setLayoutX(coche.getLayoutX() + 10);
-				}
-				
-			}
-		});
 	}
 	
 	

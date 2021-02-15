@@ -42,7 +42,6 @@ public class InicioController {
 		
 	
 	public void prueba(MouseEvent event) {
-		System.out.println();
 		((Node)event.getSource()).getScene().setOnKeyPressed(new EventHandler<KeyEvent>() {
 
 			@Override
@@ -50,10 +49,9 @@ public class InicioController {
 
 				try {
 					FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/PantallaJuego.fxml"));
-					PartidaController controller = new PartidaController();
+					PartidaController controller = new PartidaController(stage);
 					loader.setController(controller);
 					AnchorPane root = (AnchorPane)loader.load();
-					
 					Scene scene = new Scene(root,800,600);
 					stage.setScene(scene);
 					stage.getIcons().add(new Image("file:img/logo.png"));

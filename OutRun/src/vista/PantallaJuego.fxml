@@ -10,9 +10,9 @@
 
 <AnchorPane fx:id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#prueba" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fitHeight="607.0" fitWidth="806.0" layoutX="-5.0" layoutY="-3.0" pickOnBounds="true">
+      <ImageView fx:id="fondo" fitHeight="607.0" fitWidth="806.0" layoutX="-5.0" layoutY="-3.0" pickOnBounds="true">
          <image>
-            <Image url="@../../img/800x600/carretera2.gif" />
+            <Image url="@../../img/800x600/Amanecer/carretera1.gif" />
          </image>
       </ImageView>
       <ImageView fx:id="cocheChoque" fitHeight="13.0" fitWidth="30.0" layoutX="383.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true" visible="false">
