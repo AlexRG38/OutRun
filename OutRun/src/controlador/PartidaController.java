@@ -10,6 +10,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
@@ -23,6 +24,7 @@ public class PartidaController {
 	@FXML AnchorPane container;
 	@FXML Rectangle rLeft, rRight;
 	Stage stage;
+	AudioClip audio;
 	
 	public PartidaController(Stage stage) {
 		this.stage = stage;
@@ -30,14 +32,14 @@ public class PartidaController {
 	
 	@FXML
 	public void initialize() {
-		HiloPartida hp = new HiloPartida(lTiempo, lScore, lStage, this, cocheChoque, coche, fondo, stage);
+		HiloPartida hp = new HiloPartida(lTiempo, lScore, lStage, this, cocheChoque, coche, fondo, audio, stage);
 		hp.start();
+		
 	}
 	
 	
 	
 	public void prueba(MouseEvent event) {
-		System.out.println();
 		((Node)event.getSource()).getScene().setOnKeyPressed(new EventHandler<KeyEvent>() {
 
 			@Override

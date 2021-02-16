@@ -1,8 +1,6 @@
 package controlador;
 
 import java.io.IOException;
-
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +8,6 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -23,6 +20,7 @@ public class InicioController {
 	@FXML ImageView imgPressStart, imgTitulo, imgFondo;
 	@FXML AnchorPane container;
 	Stage stage;
+	AudioClip audio;
 
 	boolean activo = true;
 	
@@ -32,9 +30,10 @@ public class InicioController {
 		
 	@FXML
 	public void initialize() {
-		/*AudioClip audio = new AudioClip("file:audio/IntroMusic.mp3");
-		audio.setVolume(10);
-		audio.play();*/
+		audio = new AudioClip("file:audio/IntroMusic.mp3");
+		audio.setVolume(1.0);
+		audio.play();
+		
 		HiloOpacidadStart hos = new HiloOpacidadStart(imgPressStart, imgTitulo, imgFondo, this);
 		hos.start();
 		
@@ -58,6 +57,7 @@ public class InicioController {
 					stage.setTitle("OutRun.exe version 1986");
 					setActivo(false);
 					stage.show();
+					audio.stop();
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

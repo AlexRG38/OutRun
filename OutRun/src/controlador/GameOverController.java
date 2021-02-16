@@ -1,7 +1,6 @@
 package controlador;
 
 import java.io.IOException;
-
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,19 +10,23 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 
 public class GameOverController {
 	
 	Stage stage;
+	AudioClip audio;
 	
-	public GameOverController(Stage stage) {
+	public GameOverController(Stage stage, AudioClip audio) {
 		this.stage = stage;
+		this.audio = audio;
 	}
 	
 	@FXML
 	public void initialize() {
-		System.out.println("He llegado aqui");
+		audio = new AudioClip("file:audio/crash.mp3");
+		audio.play();
 	}
 	
 	public void prueba(MouseEvent event) {
@@ -31,7 +34,6 @@ public class GameOverController {
 
 			@Override
 			public void handle(KeyEvent event) {
-				System.out.println("Funcionas??????");
 				try {
 					FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/PantallaJuego.fxml"));
 					PartidaController controller = new PartidaController(stage);
@@ -42,6 +44,7 @@ public class GameOverController {
 					stage.getIcons().add(new Image("file:img/logo.png"));
 					stage.setTitle("OutRun.exe version 1986");
 					stage.show();
+					audio.stop();
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

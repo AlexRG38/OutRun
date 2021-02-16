@@ -32,7 +32,7 @@
             <Image url="@../../img/keyLeft.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="coche" fitHeight="71.0" fitWidth="144.0" layoutX="333.0" layoutY="530.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="coche" fitHeight="71.0" fitWidth="133.0" layoutX="333.0" layoutY="530.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/car1.png" />
          </image>
@@ -63,7 +63,7 @@
             <Image url="@../../img/score.png" />
          </image>
       </ImageView>
-      <Label fx:id="lTiempo" layoutX="270.0" layoutY="9.0" prefHeight="54.0" prefWidth="69.0" text="80" textFill="#f5f555">
+      <Label fx:id="lTiempo" layoutX="270.0" layoutY="9.0" prefHeight="54.0" prefWidth="69.0" text="0" textFill="#f5f555">
          <font>
             <Font name="Arial Black" size="28.0" />
          </font>

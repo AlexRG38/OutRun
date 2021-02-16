@@ -6,9 +6,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#prueba" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fitHeight="622.0" fitWidth="809.0" layoutX="-8.0" layoutY="-2.0" onMouseClicked="#prueba" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgDerrota" fitHeight="600.0" fitWidth="800.0" onMouseClicked="#prueba" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../img/road.png" />
+            <Image url="@../../img/derrota.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="511.0" fitWidth="566.0" layoutX="117.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">

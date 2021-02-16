@@ -17,8 +17,6 @@ public class HiloOpacidadStart extends Thread {
 
 	@Override
 	public void run () {
-		System.out.println(imgTitulo.getLayoutX());
-		
 		while(imgTitulo.getLayoutX() != 165) {
 			imgTitulo.setLayoutX(imgTitulo.getLayoutX() + 30);
 			imgTitulo.setOpacity(imgTitulo.getOpacity() + 0.05);
@@ -46,6 +44,5 @@ public class HiloOpacidadStart extends Thread {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("Funciono en el final");
 	}
 }
